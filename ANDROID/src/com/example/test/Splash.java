@@ -8,17 +8,18 @@ import android.os.Bundle;
 
 public class Splash extends Activity{
 
-	MediaPlayer ourSong;
+	MediaPlayer Song;
 	
-	protected void onCreate(Bundle Vaeriable) {
-		super.onCreate(Vaeriable);
+	protected void onCreate(Bundle Variable) {
+		super.onCreate(Variable);
 		setContentView(R.layout.splash);
-		ourSong =  MediaPlayer.create(Splash.this, R.raw.begin);
-		ourSong.start();
+		Song =  MediaPlayer.create(Splash.this, R.raw.sweet);
+		Song.start();
+		Song.seekTo(22000);
 		Thread timer = new Thread() {
 			public void run() {
 				try {
-					sleep(11000);
+					sleep(6000);
 				} catch(InterruptedException e){
 					e.printStackTrace();
 				} finally {
@@ -33,7 +34,7 @@ public class Splash extends Activity{
 
 	protected void onPause() {
 		super.onPause();
-		ourSong.release();
+		Song.release();
 		finish();
 	
 	};	
